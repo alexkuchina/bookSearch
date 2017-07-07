@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<!-- Lets Media Queries Work   -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Nothing+You+Could+Do" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicon.ico">
+<!--Bootstrap CSS    -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+<!-- Custom CSS   -->
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link href="css/animate.css" rel="stylesheet">
+	<title>Book Search</title>
+</head>
+<body>
+    <div class='container'>
+        <div class='row' id='searchRow'>
+            <h1 class='resposive-text'>Book Search</h1>
+            <div class='col-md-4'>
+                <div class='input-group'>
+                    <span class='input-group-btn'>
+                        <button class='btn btn-primary' type='button' id='searchButton'>Search</button>
+                    </span>
+                    <input class='form-control' type='text' placeholder="Title or Author" id='userInput'>
+                </div>
+            </div>
+        </div>
+        <div id='showResults' class='row'>
+
+        </div>
+    </div>
+   
+
+    
+<!-- jQUERY (Gas for the Bootstrap JS car)   -->
+    <script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+<!-- BOOTSTRAP JAVASCRIPT -->
+    <script src="js/bootstrap.min.js"></script>
+<!--CUSTOM JAVASCRIPT-->
+    <script src="js/main.js"></script>
+</body>
+</html>
