@@ -1,11 +1,21 @@
 
+var press = document.getElementById('userInput');
+press.addEventListener('keypress', function enterKey(e) {
+	if(e.keyCode == 13) {
+		findBooks();
+		e.preventDefault();
+	};
+}, false);
+
+
 function findBooks() {
 	//console.log('the function runs')
 
 	var userInput = document.getElementById('userInput')
 	
 
-	// userInput.value.innerHTML = ''
+	var results = document.getElementById('showResults')
+    results.innerHTML = ""
 
 	$.ajax({
 		url:"https://www.googleapis.com/books/v1/volumes?q=" + userInput.value,
@@ -19,6 +29,8 @@ function findBooks() {
 
 				var newCol = document.createElement('div')
 				var pic = document.createElement('img')
+				pic.setAttribute('width', '160');
+				pic.setAttribute('height', '180');
 				var newH2 = document.createElement('h2')
 				var newH3 = document.createElement('h3')
 				var newH4 = document.createElement('h4')
@@ -38,7 +50,7 @@ function findBooks() {
 				newLink.href = displayData.infoLink
 				newLink.setAttribute('target', 'blank')
                 
-                //display picture if there is 
+                //display picture if there is one
 				if(displayData.imageLinks){
 					pic.src = displayData.imageLinks.thumbnail
 				} else {
@@ -60,14 +72,14 @@ function findBooks() {
 					newH4.innerHTML = 'no publish date found'
 				}
 
-				
+				//add all the new elements to a newCol div
 				newCol.appendChild(pic)
 				newCol.appendChild(newH2)
 				newCol.appendChild(newH3)
                 newCol.appendChild(newH4)
 				newCol.appendChild(newLink)
 
-				var results = document.getElementById('showResults')
+				// var results = document.getElementById('showResults')
 				results.appendChild(newCol)
 
 			}
@@ -78,6 +90,7 @@ function findBooks() {
 	})
 	
 
+	userInput.value = ''
 
 }
 
@@ -85,6 +98,12 @@ function findBooks() {
 var searchButton = document.getElementById('searchButton')
 searchButton.addEventListener('click', findBooks, false)
 
+// $('#searchButton').on('click', '#showResults', findBooks)
+
+// document.addEventListener('DOMContentLoaded', function () {
+//     document.getElementById("searchButton").addEventListener("click", findBooks());
+//     // wrapped in a function
+// } );
 
 
 
